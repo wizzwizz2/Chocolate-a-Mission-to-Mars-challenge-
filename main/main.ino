@@ -24,10 +24,39 @@ void setup()
   pinMode(interrupt_pin_3, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(interrupt_pin_2), left_motor_pulse_interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(interrupt_pin_3), right_motor_pulse_interrupt, RISING);
+  code_setup();
 }
+
+void code_setup()
+ {
+   
+ }
 
 void loop()
 { 
+  for (int turn_time=100; turn_time <= 1500; turn_time = turn_time + 100){
+    for(int x=0; x<4;x++){
+      left_motor.reverse(speed);
+      right_motor.forward(speed);
+      delay(turn_time);
+
+      // Stop the robots motors
+      left_motor.stop();
+      right_motor.stop();
+      delay(200); 
+    }
+    delay(5000);
+    
+  }
+    
+
+  exit(0);
+
+  
+}
+
+void test1()
+{
   // Move robot forwards for one second
   left_motor.forward(speed);
   right_motor.forward(speed);
@@ -71,8 +100,6 @@ void loop()
   // Stop the robots motors
   left_motor.stop();
   right_motor.stop();
-
-  
 }
 
 void left_motor_pulse_interrupt()
