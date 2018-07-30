@@ -34,7 +34,42 @@ void code_setup()
 
 void loop()
 { 
-  for (int turn_time=100; turn_time <= 1500; turn_time = turn_time + 100){
+  for (int turn_time=700; turn_time <= 800; turn_time = turn_time + 10){
+    for(int x=0; x<4;x++){
+      right_motor.reverse(speed);
+      left_motor.forward(speed);
+      delay(turn_time);
+
+      // Stop the robots motors
+      left_motor.stop();
+      right_motor.stop();
+      delay(200); 
+    }
+    delay(5000);
+    
+  }
+    
+
+  exit(0);
+
+  
+}
+
+void turn_left_90()
+{
+  left_motor.forward(200);
+  delay(730);
+  }
+
+void turn_right_90()
+{
+  left_motor.forward(200);
+  delay(730);
+  }
+
+void turn_test_left()
+{ 
+  for (int turn_time=700; turn_time <= 800; turn_time = turn_time + 10){
     for(int x=0; x<4;x++){
       left_motor.reverse(speed);
       right_motor.forward(speed);
@@ -55,7 +90,26 @@ void loop()
   
 }
 
-void test1()
+void turn_right_test()
+{ 
+  for (int turn_time=700; turn_time <= 800; turn_time = turn_time + 10){
+    for(int x=0; x<4;x++){
+      right_motor.reverse(speed);
+      left_motor.forward(speed);
+      delay(turn_time);
+
+      // Stop the robots motors
+      left_motor.stop();
+      right_motor.stop();
+      delay(200); 
+    }
+    delay(5000);
+    
+  }
+
+  exit(0);
+}
+void robot_movement_test()
 {
   // Move robot forwards for one second
   left_motor.forward(speed);
